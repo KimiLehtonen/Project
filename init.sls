@@ -27,20 +27,18 @@ spotify-client:
 dpkg --add-architecture i386:
   cmd.run
 
-apt-get update:
-  cmd.run
+libgl1-mesa-dri:amd64:
+  pkg.installed  
 
-apt-get install -y libgl1-mesa-dri:amd64:
-  cmd.run
+libgl1-mesa-dri:i386:
+  pkg.installed:
+    - refresh: True
 
-apt-get install -y libgl1-mesa-dri:i386:
-  cmd.run
+libgl1-mesa-glx:amd64:
+  pkg.installed
 
-apt-get install -y libgl1-mesa-glx:amd64:
-  cmd.run
-
-apt-get install -y libgl1-mesa-glx:i386:
-  cmd.run
+libgl1-mesa-glx:i386:
+  pkg.installed
 
 steam-launcher:
   pkg.installed:
